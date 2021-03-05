@@ -117,4 +117,4 @@ here :
 10. Explain what is callback function. Why you can pass a function inside a function?
 <!-- since function is an object and object is data type in JavaScript. Hence function is nothing but evaluated expression at the end. we can pass expression as a arguments inside the function. Hence we can pass function inside a function 
 
-When a function reference is passsed as an argument to the Higher order function, keeping in mind that those function references may be called later in the future , if needed. Those refrences are called callback function-->
+When a function reference is passsed as an argument to the Higher order function, keeping in mind that those function references may be called later in the future , if needed. Those refrences are called callback functions-->
