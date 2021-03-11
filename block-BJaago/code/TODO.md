@@ -26,7 +26,7 @@ var userMessage = sayHelloToUser('Bran');
 
 <!-- Put your image below -->
 
-![](./img/image-name.jpg)
+![](./img/IMG_20210311_115842.jpg)
 
 2.
 
@@ -60,7 +60,7 @@ sayHi();
 
 <!-- Put your image below -->
 
-![](./img/image-name.jpg)
+![](./img/IMG_20210311_124434.jpg)
 
 4.
 
@@ -73,4 +73,8 @@ var arr = [1, 2, 3, 4, 5, 6];
 function double(num) {
   return num * 2;
 }
+
+
 ```
+![](./img/IMG_20210311_124437.jpg)
+
