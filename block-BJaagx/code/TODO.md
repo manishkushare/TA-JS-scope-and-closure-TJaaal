@@ -19,6 +19,9 @@ function multiplyBy5(n) {
 let numbersAddedFive = multiplyArrayByN(marks, addFive);
 let numbersMultipliedBy5 = multiplyArrayByN(marks, multiplyBy5);
 ```
+multiplyArrayByN is an Higher order function
+and addFive , multiplyBy5 is callvack functon
+becasue, we are passing addfive and multiplyBy5 as a function refrence inside a function multiplyArrayByN
 
 2. Create the execution context diagram of the above code snippet
 
@@ -27,6 +30,7 @@ let numbersMultipliedBy5 = multiplyArrayByN(marks, multiplyBy5);
 ```js
 function operation(n, opFn) {
   // your code goes her
+  return opFn(n);
 }
 // TEST
 console.log(
@@ -48,6 +52,7 @@ console.log(
 ```js
 function operation(str, opFn) {
   // your code goes her
+  return opFn(str);
 }
 // TEST
 console.log(
