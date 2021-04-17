@@ -1,7 +1,7 @@
 Find the output of the code snippets below:
 
 ```js
-console.log(numA + numB); //OUTPUT undefined  and it will console 51
+console.log(numA + numB); //OUTPUT undefined 
 var numA = 21,
   numB = 30;
 ```
