@@ -114,17 +114,7 @@ output -
 8 First
 9 First
 
-1 Second
-2 Second
-0 Second
-3 Second
-4 Second
-5 Second
-6 Second
-7 Second
-8 Second
-9 Second
-
+9 : Second
 
 9. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
 
