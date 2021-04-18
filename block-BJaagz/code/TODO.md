@@ -5,7 +5,11 @@
 - It should work exactly like array `forEach` method
 
 ```js
-function forEach() {}
+function forEach(arr,cb) {
+  for(let elem of arr){
+    cb(elem);
+  }
+}
 
 forEach(['Sam', 'Jon', 'Arya'], (name, i, arr) =>
   console.log(name + name, i, arr)
@@ -21,6 +25,7 @@ forEach(['Sam', 'Jon', 'Arya'], (name, i, arr) =>
 ```js
 function map() {
   // Your code goes here
+  
 }
 
 map(['Sam', 'Jon', 'Arya'], (name) => name + name); // ['SamSam', 'JonJon', 'AryaArya']
