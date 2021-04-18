@@ -59,44 +59,55 @@ function forEach(array,cb){
   console.log(alphabet);
 }
 
-function concatenation(word){
-  alphabet += word;
-  return alphabet;
-}
+// function concatenation(word){
+//   alphabet += word;
+//   return alphabet;
+// }
 // Test Your Code
 let alphabet = '';
 let letters = ['a', 'b', 'c', 'd'];
-// forEach(letters, function (char) {
-//   alphabet += char;
-// });
-// console.log(alphabet); //prints 'abcd'
+forEach(letters, function (char) {
+  alphabet += char;
+});
+console.log(alphabet); //prints 'abcd'
 ```
 
 5. Create higher-order function called `filter` takes an array and a callback, and runs the callback on each element of the array if the return value of callback is `truthy` store in new array return the new array.
 
 ```js
 // Test Your Code
- let evenArray = [];
- let oddArray = [];
-function filter(numbers,even,odd){
-  for(let elem of numbers){
-    even(elem);
-    odd(elem);
-  }
+//  let evenArray = [];
+//  let oddArray = []; 
+// function filter(numbers,even,odd){
+//   for(let elem of numbers){
+//     even(elem);
+//     odd(elem);
+//   }
   
+// }
+
+function filter(array,cb){
+  let arr = [];
+  for(let elem of arr){
+    if(cb(elem)){
+      arr.push(elem)
+    }
+
+  }
+  return arr;
 }
 
-function even(n){
-  if(n % 2 === 0){
-   return evenArray.push(n)
-  }
-}
+// function even(n){
+//   if(n % 2 === 0){
+//    return evenArray.push(n)
+//   }
+// }
 
-function odd(n){
-  if(n % 2 !== 0){
-   return oddArray.push(n)
-  }
-}
+// function odd(n){
+//   if(n % 2 !== 0){
+//    return oddArray.push(n)
+//   }
+// }
 
 
 var numbers = [1, 3, 5, 4, 7, 89, 234, 20];
