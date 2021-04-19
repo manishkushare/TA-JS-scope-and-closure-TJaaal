@@ -49,5 +49,5 @@ let tomato = makeColorChanger('tomato');
 blue();
 tomato();
 
-// What will be the background color after the execution of last line
+// What will be the background color after the execution of last line - "tomato"
 ```
