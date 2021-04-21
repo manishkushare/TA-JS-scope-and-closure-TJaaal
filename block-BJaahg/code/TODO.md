@@ -10,9 +10,9 @@ const lastName = 'Stark';
 var knownAs = 'no one';
 
 console.log(
-  window.firstName,
-  window.lastName,
-  window.knownAs
+  window.firstName,// undefined
+  window.lastName, //undefined
+  window.knownAs //"no one"
 );
 ```
 
@@ -27,7 +27,7 @@ function fullName(a, b) {
   return a + b;
 }
 
-console.log(window.fullName(firstName, lastName));
+console.log(window.fullName(firstName, lastName));// "AryaStark"
 ```
 
 3. Make a Execution Context Diagram for the following JS and write the output.
@@ -38,7 +38,7 @@ fucntion addOne(num){
 }
 var one = addOne(0);
 var two = addOne(1);
-console.log(one, two);
+console.log(one, two);// 1,2  
 ```
 
 4. Make a Execution Context Diagram for the following JS and write the output.
@@ -49,24 +49,24 @@ fucntion addOne(num){
   return num + 1;
 }
 var two = addOne(1);
-console.log(one, two);
+console.log(one, two); // 1,2
 ```
 
 5. Make a Execution Context Diagram for the following JS and write the output.
 
 ```js
-console.log(addOne(0));
+console.log(addOne(0)); //1
 fucntion addOne(num){
   return num + 1;
 }
 var two = addOne(1);
-console.log(two);
+console.log(two);//2
 ```
 
 6. Make a Execution Context Diagram for the following JS and write the output.
 
 ```js
-var one = addOne(0);
+var one = addOne(0); //cannot access addOne before initialization
 const addOne = (num) => {
   return num + 1;
 };
@@ -77,7 +77,7 @@ console.log(two);
 7. Make a Execution Context Diagram for the following JS and write the output.
 
 ```js
-console.log(addOne(0));
+console.log(addOne(0)); // cannot use addOne before initialization
 const addOne = (num) => {
   return num + 1;
 };
@@ -93,7 +93,7 @@ function isAwesome() {
   if (false) {
     awesome = true;
   }
-  console.log(awesome);
+  console.log(awesome);//undefined
 }
 isAwesome();
 ```
@@ -106,7 +106,7 @@ function isAwesome() {
   if (true) {
     awesome = true;
   }
-  console.log(awesome);
+  console.log(awesome);//true
 }
 isAwesome();
 ```
@@ -119,7 +119,7 @@ function isAwesome() {
   if (false) {
     awesome = true;
   }
-  console.log(awesome);
+  console.log(awesome);//undefined;
 }
 isAwesome();
 ```
@@ -135,7 +135,7 @@ function fullName(a, b) {
   return a + b;
 }
 const name = fullName(firstName, lastName);
-console.log(name);
+console.log(name);// "AryaStark"
 ```
 
 12. Guess the output of the code below with a reason.
@@ -146,7 +146,7 @@ function sayHello() {
 }
 sayHello();
 
-console.log(name);
+console.log(name);// name is not defined. Because, name is defined inside a function and it is function-scoped, that means its accessible within the synction called sayHello
 ```
 
 13. Guess the output of the code below with a reason.
@@ -155,7 +155,7 @@ console.log(name);
 if (true) {
   var name = 'Arya Stark';
 }
-console.log(name);
+console.log(name);// 'Arya Stark' becasue, var is not block-scoped, hence, its's accessible globally
 ```
 
 14. Guess the output of the code below with a reason.
@@ -164,7 +164,7 @@ console.log(name);
 if (true) {
   let name = 'Arya Stark';
 }
-console.log(name);
+console.log(name); //name is not defined, because, let is block-scoped.
 ```
 
 15. Guess the output of the code below with a reason.
@@ -173,7 +173,7 @@ console.log(name);
 for (var i = 0; i < 20; i++) {
   //
 }
-console.log(i);
+console.log(i);//20 becasue, var is not block-scoped, hence it will run the for loop and after exiting it, i in global scope will contain, i=20
 ```
 
 16. Guess the output of the code below with a reason.
@@ -182,7 +182,7 @@ console.log(i);
 for (let i = 0; i < 20; i++) {
   //
 }
-console.log(i);
+console.log(i);// let is not defined, becuase, i is defined inside block scope using let keyword and let is block-scoped
 ```
 
 17. Guess the output and the reason behind that.
@@ -194,7 +194,7 @@ function sample() {
   }
   console.log(username);
 }
-sample();
+sample();//"John Snow"
 ```
 
 18. Guess the output and the reason behind that.
@@ -206,7 +206,7 @@ function sample() {
   }
   console.log(username);
 }
-sample();
+sample();// username is not defined
 ```
 
 19. Guess the output and the reason behind that.
@@ -216,9 +216,9 @@ function sample() {
   var username = 'Arya Stark';
   if (true) {
     var username = 'John Snow';
-    console.log(username);
+    console.log(username);//'John Snow' = due to concept of shadowing
   }
-  console.log(username, 'second');
+  console.log(username, 'second');//'Arya Stark' 
 }
 sample();
 ```
@@ -230,9 +230,9 @@ function sample() {
   let username = 'Arya Stark';
   if (true) {
     let username = 'John Snow';
-    console.log(username, 'first');
+    console.log(username, 'first'); // "John Snow"
   }
-  console.log(username, 'second');
+  console.log(username, 'second'); // "Arya Stark"
 }
 sample();
 ```
@@ -241,6 +241,7 @@ sample();
 
 ```js
 function sample(...args) {
+  console.log(args)
   for (let i = 0; i < args.length; i++) {
     let message = `Hello I am ${args[i]}`;
     console.log(message);
@@ -261,6 +262,9 @@ function sample(...args) {
 }
 
 sample('First', 'Second', 'Third');
+// Hello I am first
+//Hello I am second
+//Hello I am third
 ```
 
 23. Guess the output and the reason behind that.
@@ -272,7 +276,7 @@ if (true) {
   };
   console.log(username, 'First');
   let username = 'Hello World!';
-  myFunc();
+  myFunc();// cannot access username (first) before intializing it
 }
 ```
 
@@ -289,7 +293,7 @@ function outer() {
   inner();
 }
 
-outer();
+outer();//I love this movie called MAD MAX: FURY ROAD
 ```
 
 25. Guess the output and the reason behind that.
@@ -306,7 +310,7 @@ function outer() {
   inner();
 }
 
-outer();
+outer();//I love this movie called BEFORE SUNRISE - because of local scope
 ```
 
 26. Guess the output and the reason behind that.
@@ -326,7 +330,8 @@ function outer() {
   }
   inner();
 }
-outer();
+outer();//I love this movie called GONE GIRL
+
 ```
 
 30. Using reduce find the final value when the initial value passed is `100`. You have to pass the output of one function into the input of next function in the array `allFunctions` starts with `addOne` ends with `half`.
@@ -354,5 +359,10 @@ let allFunctions = [
   half,
 ];
 
+let result = allFunctions.reduce((acc,cv)=>{
+  acc = cv(acc);
+  return acc;
+},100)
+console.log(result);
 // Answer is: 447
 ```
