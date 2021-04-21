@@ -10,8 +10,12 @@
 **You can use normal for loop for this function**
 
 ```js
-function loop() {
-  // Your code goes here
+function loop(startValue,testFunction, updateFunction,body) {
+  // Your code goes here  
+  // let sV = startValue;
+  for(let i =  startValue; testFunction(i); i = updateFunction(i)){
+     body(i);
+  }
 }
 
 loop(
@@ -30,7 +34,12 @@ loop(
 Here's how it works. The function has an "accumulator value" which starts as the `initialValue` and accumulates the output of each loop. The array is iterated over, passing the accumulator and the next array element as arguments to the `callback`. The callback's return value becomes the new accumulator value. The next loop executes with this new accumulator value. In the example above, the accumulator begins at 0. `add(0,4)` is called. The accumulator's value is now 4. Then `add(4, 1)` to make it 5. Finally `add(5, 3)` brings it to 8, which is returned.
 
 ```js
-function reduce(array, callback, initialValue) {}
+function reduce(array, callback, initialValue) {
+  for(let i=0; i< array.length; i++){
+    initialValue = callback(initialValue,array[i]);
+  }
+  return initialValue;
+}
 
 // Test
 var nums = [4, 1, 3];
@@ -43,8 +52,15 @@ reduce(nums, add, 0); //-> 8
 3. Construct a function intersection that compares input arrays and returns a new array with elements found in all of the inputs.
 
 ```js
-function intersection(arrays) {}
-
+function intersection(...arrays) {
+  return arrays[0].reduce((acc,cv)=>{
+    if(arrays[1].find(num => num ===cv) && arrays[2].find(num => num ===cv)){
+      acc.push(cv);
+    }
+    return acc;
+  },[])
+}
+ 
 // Test
 console.log(
   intersection(
@@ -58,7 +74,14 @@ console.log(
 4. Construct a function `union` that compares input arrays and returns a new array that contains all elements. If there are duplicate elements, only add it once to the new array. Preserve the order of the elements starting from the first element of the first input array.
 
 ```js
-function union(arrays) {}
+function union(...arrays) {
+  return arrays.flat().reduce((acc,cv)=>{
+    if(!acc.includes(cv)){
+      acc.push(cv)
+    }
+    return acc;
+  },[])
+}
 
 // Test
 console.log(
