@@ -52,9 +52,20 @@ reduce(nums, add, 0); //-> 8
 3. Construct a function intersection that compares input arrays and returns a new array with elements found in all of the inputs.
 
 ```js
+// function intersection(...arrays) {
+//   return arrays[0].reduce((acc,cv)=>{
+//     if(arrays[1].find(num => num ===cv) && arrays[2].find(num => num ===cv)){
+//       acc.push(cv);
+//     }
+//     return acc;
+//   },[])
+// }
+//  find is time consuming algorithm, it iterates over all the elments 
+//better option is include method, its faster than find
+
 function intersection(...arrays) {
   return arrays[0].reduce((acc,cv)=>{
-    if(arrays[1].find(num => num ===cv) && arrays[2].find(num => num ===cv)){
+    if(arrays[1].includes(cv) && arrays[2].includes(cv)){
       acc.push(cv);
     }
     return acc;
@@ -83,9 +94,19 @@ function union(...arrays) {
   },[])
 }
 
+// function union(...arrays){
+//   let firstArray = arrays[0];
+//   for(let i=1; i < arrays.length ; i++){
+//     let iterableArray = arrays[i]
+//     firstArray = firstArray.filter(num => !iterableArray.includes(num)).concat(iterableArray);
+//   }
+//   return firstArray;
+// }
+
 // Test
 console.log(
   union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5])
 );
 // should log: [5, 10, 15, 88, 1, 7, 100]
 ```
+ 
