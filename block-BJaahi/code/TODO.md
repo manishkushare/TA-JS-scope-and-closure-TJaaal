@@ -404,7 +404,7 @@ function add(a, b) {
   return a + b;
 }
 // execution phase
-sum = test(100)
+sum = test(100);
 
 
 ```
