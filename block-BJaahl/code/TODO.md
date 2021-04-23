@@ -3,6 +3,13 @@
 ```js
 function once(cb) {
   // your code goes here
+  let executed = false
+  return function(){
+     if(!executed){
+       executed = true;
+       cb();
+     }
+  }
 }
 
 // TEST
@@ -17,8 +24,37 @@ log(); // return undefinde (can't be called twice)
 2. Change the above function in such a way that the function accepts two parameter a callback function and parameter for the callback function. When calling the function pass the parameters.
 
 ```js
-function once(cb) {
+function once(cb,message) {
   // your code goes here
+  let executed = false;
+  return function(){
+    if(!executed){
+      executed = true;
+      cb(message);
+    }
+  }
+}
+
+// TEST
+let log = once(console.log, 'Hello Console');
+log(); // log message "Hello Console"
+log(); // return undefinde (can't be called twice)
+```
+
+3. Change the above function in such a way that it can accept `n` number of parameters for the callback function.
+
+**For handling `n` number of parameter use `rest` parameters `...` or predefined arguments variable present in every function d
+
+```js
+function once(cb,message) {
+  // your code goes here
+  let executed = false;
+  return function(){
+    if(!executed){
+      executed = true;
+      cb(message);
+    }
+  }
 }
 
 // TEST
@@ -34,8 +70,15 @@ log(); // return undefinde (can't be called twice)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
 
 ```js
-function once(cb) {
+function once(cb,...message) {
   // your code goes here
+  let executed = false;
+  return function(){
+    if(!executed){
+      executed = true;
+      cb(message.join(" "))
+    }
+  }
 }
 
 // TEST
@@ -43,12 +86,22 @@ let log = once(console.log, 'Message one', 'Message Two');
 log(); // log message "Message One Message Two"
 log(); // return undefinde (can't be called twice)
 ```
-
 4. Create a new function `nTimes` whose 1st parameter is a callback function, 2nd parameter is the number of times the function should be called and 3rd ... nth parameter should be passed to the callback function.
 
 ```js
 function nTimes(cb, times, ...rest) {
   // your code goes here
+  let executed = 0;
+  return function(){
+    if(executed < times){
+      cb(rest.join(" "))
+      ++executed;
+    }
+    
+
+  }
+  
+
 }
 
 // TEST
